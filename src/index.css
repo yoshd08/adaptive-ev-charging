@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent:      #3BFFB0;
+  --accent-glow: rgba(59, 255, 176, 0.12);
+  --bg:          #060606;
+  --surface:     #0e0e0e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: #F2F2F2;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #060606; }
+::-webkit-scrollbar-thumb { background: #232323; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #3BFFB0; }
+
+/* Selection */
+::selection {
+  background: rgba(59, 255, 176, 0.25);
+  color: #3BFFB0;
+}
+
+/* ── Utility Classes ── */
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3BFFB0;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #F2F2F2;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #232323;
+}
+
+/* Noise texture overlay */
+.noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+}
+
+/* Accent glow on interactive elements */
+.accent-glow {
+  box-shadow: 0 0 0 1px rgba(59, 255, 176, 0.3),
+              0 0 20px rgba(59, 255, 176, 0.08);
+}
+
+/* Card base */
+.card {
+  background: #0e0e0e;
+  border: 1px solid #232323;
+  border-radius: 12px;
+}
+
+.card-hover {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-hover:hover {
+  border-color: #2e2e2e;
+  transform: translateY(-2px);
+}
+
+/* Range input custom styling */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type='range']::-webkit-slider-track {
+  background: #232323;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #3BFFB0;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 0 8px rgba(59, 255, 176, 0.4);
+}
+
+input[type='range']::-moz-range-track {
+  background: #232323;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type='range']::-moz-range-thumb {
+  background: #3BFFB0;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 8px rgba(59, 255, 176, 0.4);
+}
+
+/* Horizontal scroll */
+.scroll-x {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-x: auto;
+}
+
+.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+/* Phone mockup */
+.phone-mock {
+  border: 1px solid #232323;
+  border-radius: 36px;
+  overflow: hidden;
+  background: #0e0e0e;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6),
+              inset 0 1px 0 rgba(255,255,255,0.04);
+}
